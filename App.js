@@ -69,7 +69,7 @@ export default function App() {
   const [messages, setMessages] = useState([]);
 const checkServer = async () => {
   try {
-    const response = await fetch("http://10.65.163.123:5000");
+    const response = await fetch("https://agenthumsmartops-api.onrender.com");
     const data = await response.json();
 
     setServerMessage(data.message);
@@ -80,7 +80,7 @@ const checkServer = async () => {
 const loadProjects = async () => {
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/projects"
+      "https://agenthumsmartops-api.onrender.com/projects"
     );
 
     const data = await response.json();
@@ -103,7 +103,7 @@ useEffect(() => {
 
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/login",
+      "https://agenthumsmartops-api.onrender.com/login",
       {
         method: "POST",
         headers: {
@@ -148,7 +148,7 @@ useEffect(() => {
 
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/register",
+      "https://agenthumsmartops-api.onrender.com/register",
       {
         method: "POST",
         headers: {
@@ -204,7 +204,7 @@ useEffect(() => {
 
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/projects",
+      "https://agenthumsmartops-api.onrender.com/projects",
       {
         method: "POST",
         headers: {
@@ -241,7 +241,7 @@ useEffect(() => {
 
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/tasks",
+      "https://agenthumsmartops-api.onrender.com/tasks",
       {
         method: "POST",
         headers: {
@@ -267,7 +267,7 @@ useEffect(() => {
 const loadTasks = async () => {
   try {
     const response = await fetch(
-      "http://10.65.163.123:5000/tasks"
+      "https://agenthumsmartops-api.onrender.com/tasks"
     );
 
     const data = await response.json();
@@ -324,7 +324,7 @@ const loadTasks = async () => {
 ];
 
 for (const task of aiTasks) {
-  await fetch("http://10.65.163.123:5000/tasks", {
+  await fetch("https://agenthumsmartops-api.onrender.com/tasks", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
