@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Alert,
   ScrollView,
+  Platform,
 } from "react-native";
 
 export default function App() {
@@ -97,7 +98,7 @@ useEffect(() => {
 }, []);
   const login = async () => {
   if (email === "" || password === "") {
-    Alert.alert("Please enter email and password");
+    window.alert("Please enter email and password");
     return;
   }
 
@@ -119,14 +120,14 @@ useEffect(() => {
     const data = await response.json();
 
     if (!response.ok) {
-      Alert.alert(data.message);
+      window.alert(data.message);
       return;
     }
 
     setLoggedIn(true);
     setScreen("dashboard");
   } catch (error) {
-    Alert.alert("Server not connected");
+    window.alert("Server not connected");
   }
 };
 
@@ -137,12 +138,12 @@ useEffect(() => {
     password === "" ||
     confirmPassword === ""
   ) {
-    Alert.alert("Please fill all fields");
+    window.alert("Please fill all fields");
     return;
   }
 
   if (password !== confirmPassword) {
-    Alert.alert("Passwords do not match");
+    window.alert("Passwords do not match");
     return;
   }
 
@@ -165,11 +166,11 @@ useEffect(() => {
     const data = await response.json();
 
     if (!response.ok) {
-      Alert.alert(data.message);
+      window.alert(data.message);
       return;
     }
 
-    Alert.alert("Registration Successful");
+    window.alert("Registration Successful");
 
     setName("");
     setEmail("");
@@ -178,7 +179,7 @@ useEffect(() => {
 
     setScreen("login");
   } catch (error) {
-    Alert.alert("Server not connected");
+    window.alert("Server not connected");
   }
 };
 
@@ -191,7 +192,7 @@ useEffect(() => {
 
   const addProject = async () => {
   if (projectName === "" || clientName === "") {
-    Alert.alert("Please enter project and client name");
+    window.alert("Please enter project and client name");
     return;
   }
 
@@ -221,15 +222,15 @@ useEffect(() => {
     setProjectName("");
     setClientName("");
 
-    Alert.alert("Project Added Successfully");
+    window.alert("Project Added Successfully");
   } catch (error) {
-    Alert.alert("Server not connected");
+    window.alert("Server not connected");
   }
 };
 
   const addTask = async () => {
   if (taskName === "" || taskProject === "" || taskStatus === "") {
-    Alert.alert("Please fill all task details");
+    window.alert("Please fill all task details");
     return;
   }
 
@@ -259,9 +260,9 @@ useEffect(() => {
     setTaskProject("");
     setTaskStatus("");
 
-    Alert.alert("Task Added Successfully");
+    window.alert("Task Added Successfully");
   } catch (error) {
-    Alert.alert("Server not connected");
+    window.alert("Server not connected");
   }
 };
 const loadTasks = async () => {
